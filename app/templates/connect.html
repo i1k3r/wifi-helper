@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUSESI Wi-Fi Girişi</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent: #d4af37;
+      --accent-hover: #e6be44;
+      --success: #10b981;
+      --button-bg: #2563eb;
+      --button-hover: #1d4ed8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .logo-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .wifi-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(16, 185, 129, 0.15);
+      border-radius: 50%;
+      color: var(--success);
+    }
+
+    .wifi-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lang-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lang-btn {
+      background: #334155;
+      color: var(--text-secondary);
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .connect-btn {
+      display: inline-block;
+      width: 100%;
+      background-color: var(--button-bg);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s, transform 0.1s;
+      cursor: pointer;
+      margin-bottom: 1.25rem;
+      border: none;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+    .connect-btn:hover {
+      background-color: var(--button-hover);
+    }
+
+    .connect-btn:active {
+      transform: scale(0.98);
+    }
+
+    .browser-notice {
+      background: rgba(51, 65, 85, 0.5);
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      text-align: left;
+    }
+
+    .browser-notice strong {
+      color: var(--accent);
+    }
+
+    .footer-info {
+      padding-top: 1rem;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .room-tag {
+      display: inline-block;
+      background: #334155;
+      color: var(--text-primary);
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-badge">SUSESI LUXURY RESORT</div>
+
+    <div class="wifi-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+      </svg>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+    </div>
+
+    <!-- Turkish Content (Default) -->
+    <div id="content-tr" class="lang-content active">
+      <h1>Wi-Fi Ağına Bağlanın</h1>
+      <p>SUSESI Wi-Fi ağına bağlandınız. İnternet erişiminizi etkinleştirmek için lütfen butona dokununuz.</p>
+      <a href="{{ mikrotik_login_url }}" class="connect-btn">İnternete Bağlan</a>
+      <div class="browser-notice">
+        <strong>Bilgi:</strong> Tarayıcınız güvenlik uyarısı gösterirse, otel giriş ekranını açmak için <em>"Gelişmiş" → "Siteye devam et"</em> seçeneğine dokununuz.
+      </div>
+    </div>
+
+    <!-- English Content -->
+    <div id="content-en" class="lang-content">
+      <h1>Connect to Wi-Fi</h1>
+      <p>You are connected to SUSESI Wi-Fi. Please tap the button below to complete your internet login.</p>
+      <a href="{{ mikrotik_login_url }}" class="connect-btn">Connect to Internet</a>
+      <div class="browser-notice">
+        <strong>Note:</strong> If your browser shows a security prompt, tap <em>"Advanced" → "Continue to site"</em> to open the login page.
+      </div>
+    </div>
+
+    <!-- Russian Content -->
+    <div id="content-ru" class="lang-content">
+      <h1>Подключение к Wi-Fi</h1>
+      <p>Вы подключены к сети SUSESI. Нажмите кнопку ниже, чтобы открыть страницу авторизации.</p>
+      <a href="{{ mikrotik_login_url }}" class="connect-btn">Подключиться к интернету</a>
+      <div class="browser-notice">
+        <strong>Примечание:</strong> Если браузер покажет предупреждение, выберите <em>«Дополнительно» → «Перейти на сайт»</em>.
+      </div>
+    </div>
+
+    <!-- German Content -->
+    <div id="content-de" class="lang-content">
+      <h1>Mit WLAN verbinden</h1>
+      <p>Sie sind mit SUSESI WLAN verbunden. Tippen Sie auf die Schaltfläche, um die Anmeldung abzuschließen.</p>
+      <a href="{{ mikrotik_login_url }}" class="connect-btn">Mit dem Internet verbinden</a>
+      <div class="browser-notice">
+        <strong>Hinweis:</strong> Falls eine Sicherheitsmeldung erscheint, tippen Sie auf <em>"Erweitert" → "Weiter zur Website"</em>.
+      </div>
+    </div>
+
+    <div class="footer-info">
+      {% if room %}
+      <span>Oda / Room: <span class="room-tag">{{ room }}</span></span>
+      {% else %}
+      <span>SUSESI Guest Wi-Fi Portal</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var targetContent = document.getElementById('content-' + lang);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+      var targetBtn = Array.from(document.querySelectorAll('.lang-btn')).find(function(b) {
+        return b.innerText.toLowerCase() === lang;
+      });
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
