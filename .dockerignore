@@ -1,0 +1,27 @@
+# Git & GitHub
+.git
+.github
+.gitignore
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+
+# Documentation & Scratch
+docs/
+*.md

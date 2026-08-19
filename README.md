@@ -162,6 +162,23 @@ uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
 
 ---
 
+## Container Image / GHCR
+
+The application is automatically built and published to GitHub Container Registry on every push to `main`:
+
+```text
+ghcr.io/i1k3r/wifi-helper:latest
+```
+
+### TrueNAS SCALE Custom App Deployment
+This pre-built GHCR image can be used directly when deploying a **Custom App** in TrueNAS SCALE:
+- **Image repository:** `ghcr.io/i1k3r/wifi-helper`
+- **Image tag:** `latest` (or a specific commit SHA tag)
+- **Port mapping:** Host port `8080` (bound to `10.1.11.126`) -> Container port `8080`
+- **Environment variables:** Configured as needed matching the `.env.example` schema.
+
+---
+
 ## Running Automated Tests
 
 Run the complete test suite using `pytest`:
